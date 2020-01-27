@@ -21,7 +21,7 @@
     "express": "^4.14.1",
     "express-ws": "^3.0.0",
     "openmct": "nasa/openmct",
-    "ws": "^2.0.3",
+    "ws": "^3.3.1",
     "serialport": "8.0.6",
     "moment": "2.24.0"
   }
