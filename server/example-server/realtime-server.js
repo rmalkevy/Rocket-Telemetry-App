@@ -17,6 +17,7 @@ function RealtimeServer(spacecraft) {
             };
 
         function notifySubscribers(point) {
+            console.log('notifySubscribers', point)
             if (subscribed[point.id]) {
                 ws.send(JSON.stringify(point));
             }
@@ -24,6 +25,8 @@ function RealtimeServer(spacecraft) {
 
         // Listen for requests
         ws.on('message', function (message) {
+            handleDataFromSerialPort(message)
+
             var parts = message.split(' '),
                 handler = handlers[parts[0]];
             if (handler) {
@@ -34,6 +37,29 @@ function RealtimeServer(spacecraft) {
         // Stop sending telemetry updates for this connection when closed
         ws.on('close', unlisten);
     });
+
+    function handleDataFromSerialPort(message) {
+        console.log('Server got from serial port: ', message)
+
+        var spacecraftState = toObject(message)
+        if (spacecraftState) {
+            var data = {
+                "prop.acc": spacecraftState["Acc"],
+                "pwr.hgh": spacecraftState["Hgh"],
+                "pwr.c": spacecraftState["Par"],
+                "pwr.v": spacecraftState["Ang"],
+            }
+            spacecraft.listenDataFromSerialPort(data)
+        }
+    }
+
+    function toObject(str) {
+        try {
+            return JSON.parse(str);
+        } catch (e) {
+            return null;
+        }
+    }
 
     return router;
 };

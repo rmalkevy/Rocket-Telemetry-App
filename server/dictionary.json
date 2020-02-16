@@ -1,18 +1,18 @@
 {
-    "name": "Example Spacecraft",
+    "name": "Rocket FireWay",
     "key": "sc",
     "measurements": [
         {
-            "name": "Fuel",
-            "key": "prop.fuel",
+            "name": "Acceleration",
+            "key": "prop.acc",
             "values": [
                 {
                     "key": "value",
                     "name": "Value",
-                    "units": "kilograms",
+                    "units": "m/s",
                     "format": "float",
                     "min": 0,
-                    "max": 100,
+                    "max": 10000,
                     "hints": {
                         "range": 1
                     }
@@ -110,13 +110,13 @@
             ]
         },
         {
-            "name": "Generator Temperature",
-            "key": "pwr.temp",
+            "name": "Height",
+            "key": "pwr.hgh",
             "values": [
                 {
                     "key": "value",
                     "name": "Value",
-                    "units": "℃",
+                    "units": "meters",
                     "format": "float",
                     "hints": {
                         "range": 1
