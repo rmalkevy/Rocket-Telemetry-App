@@ -45,9 +45,9 @@ function RealtimeServer(spacecraft) {
         if (spacecraftState) {
             var data = {
                 "prop.acc": spacecraftState["Acc"],
+                "prop.par": spacecraftState["Par"],
                 "pwr.hgh": spacecraftState["Hgh"],
-                "pwr.c": spacecraftState["Par"],
-                "pwr.v": spacecraftState["Ang"],
+                "pwr.ang": spacecraftState["Ang"],
             }
             spacecraft.listenDataFromSerialPort(data)
         }
