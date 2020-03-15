@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Open MCT Tutorials</title>
+    <title>Open MCT Rocket - FireWay</title>
     <script src="node_modules/openmct/dist/openmct.js"></script>
     <script src="lib/http.js"></script>
     <script src="dictionary-plugin.js"></script>
@@ -19,6 +19,12 @@
         openmct.install(openmct.plugins.Espresso());
 
         openmct.install(DictionaryPlugin());
+        openmct.install(
+            openmct.plugins.StaticRootPlugin(
+                'rocketTelemetryPlugin',
+                'display-configuration.json'
+            )
+        );
         openmct.install(HistoricalTelemetryPlugin());
         openmct.install(RealtimeTelemetryPlugin());
 

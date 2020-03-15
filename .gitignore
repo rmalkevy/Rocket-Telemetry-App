@@ -1,2 +1,2 @@
-./serial_port/node_modules/*
-./server/node_modules/*
+serial_port/node_modules/*
+server/node_modules/*

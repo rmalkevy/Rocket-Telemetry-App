@@ -11,9 +11,9 @@ const serialPortListener = serialPort.pipe(new Regex({ regex: /[\r\n]+/ }))
 
 const WebSocket = require('ws');
 const port = '8080'
-const host = 'ws://localhost:'
-const route = '/realtime'
-const ws = new WebSocket(host + port + route);
+const host = 'ws://localhost'
+const route = 'realtime'
+const ws = new WebSocket(`${host}:${port}/${route}`);
 
 ws.on('open', function open() {
   ws.send('array');
@@ -27,3 +27,12 @@ serialPortListener.on('data', buffer => {
     console.log('time:', dateTime, 'data:', data)
   }
 })
+
+// Add posibility to reopen serial port and read again
+// Add info about how to start serial port and server
+// Show 4 numbers on the some place at the window
+// longtitude: 234
+// широта: 234
+// висотаЖ: 23423
+// speed: 234
+// timestamp
