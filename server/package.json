@@ -2,9 +2,9 @@
   "name": "openmct-tutorials",
   "version": "0.0.1",
   "description": "Tutorials for Open MCT",
-  "main": "example-server/server.js",
+  "main": "app/server.js",
   "scripts": {
-    "start": "node example-server/server.js",
+    "start": "node app/server.js",
     "postinstall": "cd node_modules/openmct && npm install"
   },
   "repository": {
